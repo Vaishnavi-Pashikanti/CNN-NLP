@@ -13,9 +13,9 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # ✅ Use a Smaller Model
-processor = BlipProcessor.from_pretrained("Salesforce/blip-vqa-small")
+processor = BlipProcessor.from_pretrained("Salesforce/blip-vqa-base")
 model = BlipForQuestionAnswering.from_pretrained(
-    "Salesforce/blip-vqa-small", torch_dtype=torch.float16  # ✅ Use FP16
+    "Salesforce/blip-vqa-base", torch_dtype=torch.float16
 ).to(device)
 
 # ✅ Optimize Model Execution
