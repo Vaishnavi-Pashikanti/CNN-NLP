@@ -195,3 +195,4 @@ gunicorn
 numpy
 pillow
 torch
+transformers
