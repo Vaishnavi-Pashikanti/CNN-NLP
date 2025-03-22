@@ -12,7 +12,8 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 # Load BLIP model
 device = "cuda" if torch.cuda.is_available() else "cpu"
 processor = BlipProcessor.from_pretrained("Salesforce/blip-vqa-base")
-model = BlipForQuestionAnswering.from_pretrained("Salesforce/blip-vqa-base").to(device)
+model = BlipForQuestionAnswering.from_pretrained("Salesforce/blip-vqa-base", torch_dtype=torch.float16).to(device)
+
 
 def vqa_pipeline(image_path, question):
     """Process image and question, then return the answer."""
